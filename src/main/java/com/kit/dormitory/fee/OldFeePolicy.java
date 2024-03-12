@@ -4,7 +4,7 @@ import com.kit.dormitory.book.DormName;
 import com.kit.dormitory.member.Member;
 
 public class OldFeePolicy implements FeePolicy{
-    private int fee;
+    private int fee = 0;
     @Override
     public int fee(Member member, DormName dormName) {
         if(dormName==DormName.PUREUM){

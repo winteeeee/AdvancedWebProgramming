@@ -4,12 +4,12 @@ import com.kit.dormitory.fee.FeePolicy;
 import com.kit.dormitory.fee.NewFeePolicy;
 import com.kit.dormitory.fee.OldFeePolicy;
 import com.kit.dormitory.member.Member;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class BookServiceImpl implements BookService{
-    private final FeePolicy feePolicy = new OldFeePolicy();
+    //private final FeePolicy feePolicy = new OldFeePolicy();
+    private final FeePolicy feePolicy = new NewFeePolicy();
 
     @Override
     public Book assignRoom(Member member, DormName dormName, String roomNumber) {
