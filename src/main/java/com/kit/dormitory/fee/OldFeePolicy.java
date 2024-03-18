@@ -2,7 +2,9 @@ package com.kit.dormitory.fee;
 
 import com.kit.dormitory.book.DormName;
 import com.kit.dormitory.member.Member;
+import org.springframework.stereotype.Component;
 
+@Component
 public class OldFeePolicy implements FeePolicy{
     private int fee = 0;
     @Override
