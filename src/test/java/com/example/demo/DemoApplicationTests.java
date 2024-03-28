@@ -1,10 +1,10 @@
-package com.kit.dormitory;
+package com.example.demo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class AdvancedWebProgrammingApplicationTests {
+class DemoApplicationTests {
 
 	@Test
 	void contextLoads() {
