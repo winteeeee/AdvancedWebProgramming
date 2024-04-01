@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @Slf4j
-@Controller
+@RestController
 @RequiredArgsConstructor
 @RequestMapping("/member")
 public class MemberController {
@@ -42,14 +42,25 @@ public class MemberController {
     }
 
     @RequestMapping("/hello")
-    @ResponseBody
     public String hello() {
         return "<html><body><h1>Hello, ResponseBody!</h1></body></html>";
     }
 
     @GetMapping("/api/{id}")
-    @ResponseBody
     public String getMemberById(@PathVariable Long id) {
         return memberRepository.findById(id).getName();
+    }
+
+    @PostMapping("/requestBody")
+    public String requestBodyHandler(@RequestBody Member member) {
+        log.info("member = {}", member);
+        return "ok";
+    }
+
+    @PostMapping("/requestBody2")
+    public Member requestBodyHandler2(@RequestBody Member member) {
+        log.info("name = {}", member.getName());
+        log.info("age = {}", member.getAge());
+        return member;
     }
 }
