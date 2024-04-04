@@ -47,4 +47,33 @@ public class Order {
         this.delivery = delivery;
         delivery.setOrder(this);
     }
+
+    public static Order createOrder(Member member, Delivery delivery, OrderItem ... orderItems) {
+        Order order = new Order();
+        order.setDelivery(delivery);
+        for (OrderItem orderItem : orderItems) {
+            order.addOrderItem(orderItem);
+        }
+        order.setStatus(OrderStatus.ORDER);
+        order.setOrderDate(LocalDateTime.now());
+
+        return order;
+    }
+
+    public void cancel() {
+        if (delivery.getStatus() == DeliveryStatus.COMP) {
+            throw new IllegalArgumentException("이미 배송완료된 상품은 취소불가");
+        }
+
+        this.setStatus(OrderStatus.CANCELED);
+        orderItems.stream().forEach((o) -> o.cancel());
+    }
+
+    public int getTotalPrice() {
+        int totalPrice = orderItems.stream()
+                .map(o -> o.getTotalPrice())
+                .reduce(0, (a, b) -> a + b);
+
+        return totalPrice;
+    }
 }
