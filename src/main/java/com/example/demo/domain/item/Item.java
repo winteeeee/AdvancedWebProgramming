@@ -6,6 +6,8 @@ import lombok.Setter;
 import com.example.demo.domain.Category;
 
 import jakarta.persistence.*;
+import lombok.ToString;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +16,7 @@ import java.util.List;
 @Setter
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="DTYPE")
+@ToString
 public abstract class Item {
     @Id @GeneratedValue
     @Column(name="ITEM_ID")
@@ -21,8 +24,11 @@ public abstract class Item {
     private String name;
     private int price;
     private int stockQuantity;
+    @Enumerated(EnumType.STRING)
+    private ItemSellingStatus sellingStatus;
 
     @ManyToMany(mappedBy="items")
+    @ToString.Exclude
     private List<Category> categories = new ArrayList<Category>();
 
     public void addStock(int quantity) { //입고, 주문취소
