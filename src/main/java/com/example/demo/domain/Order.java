@@ -10,6 +10,12 @@ import java.util.Date;
 import java.util.List;
 
 
+@NamedEntityGraph(
+        name = "order.member.graph",
+        attributeNodes = {
+                @NamedAttributeNode("member")
+        }
+)
 @Entity
 @Getter
 @Setter
