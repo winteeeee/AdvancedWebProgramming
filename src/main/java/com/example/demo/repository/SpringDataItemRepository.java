@@ -20,4 +20,5 @@ public interface SpringDataItemRepository extends JpaRepository<Item, Long> {
     List<Item> findByPriceLessThan(int price);
     @Query("SELECT new com.example.demo.dto.BasicItemDTO(i.name, i.price) FROM Item i WHERE i.price <= :price")
     List<Item> findByPriceLessThan3(int price);
+    Item findFirstByNameLike(String name);
 }

@@ -19,13 +19,15 @@ public class Member extends BaseEntity {
     private String name;
     private int age;
 
-    public Member(String name, int age) {
+    @Builder
+    public Member(String name, int age, Address address) {
         if (age >= 100 || age <= 20) {
             throw new IllegalArgumentException("나이는 20보다 크고 100보다 작아야 함");
         }
 
         this.name = name;
         this.age = age;
+        this.address = address;
     }
 
     @Embedded

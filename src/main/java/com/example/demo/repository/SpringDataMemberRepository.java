@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface SpringDataMemberRepository extends JpaRepository<Member, Long> {
     List<Member> findByName(String name);
+    Member findFirstByName(String name);
 }

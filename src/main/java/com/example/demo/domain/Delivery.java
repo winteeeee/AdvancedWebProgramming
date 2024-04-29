@@ -1,13 +1,15 @@
 package com.example.demo.domain;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import jakarta.persistence.*;
 
 @Entity
 @Getter
 @Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Delivery {
     @Id @GeneratedValue
     @Column(name = "DELIVERY_ID")

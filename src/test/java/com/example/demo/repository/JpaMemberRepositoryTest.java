@@ -34,7 +34,7 @@ class JpaMemberRepositoryTest {
     @Test
     void 나이테스트() {
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
-                () -> new Member("kim", 0));
+                () -> new Member("kim", 0, null));
         //assertThrows의 인자는 Executable을 받음. 따라서 그냥 new만 하면 안되고 () -> 를 통해서 executable을 구현해야함
         System.out.println("message = " + exception.getMessage());
     }
@@ -50,7 +50,7 @@ class JpaMemberRepositoryTest {
     @ValueSource(ints = {10, 130})
     void createMember(int age) {
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
-                () -> new Member("kim", age));
+                () -> new Member("kim", age, null));
         System.out.println("message = " + exception.getMessage());
     }
 }

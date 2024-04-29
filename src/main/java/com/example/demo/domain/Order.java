@@ -1,5 +1,6 @@
 package com.example.demo.domain;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -54,8 +55,10 @@ public class Order {
         delivery.setOrder(this);
     }
 
+    @Builder
     public static Order createOrder(Member member, Delivery delivery, OrderItem ... orderItems) {
         Order order = new Order();
+        order.setMember(member);
         order.setDelivery(delivery);
         for (OrderItem orderItem : orderItems) {
             order.addOrderItem(orderItem);

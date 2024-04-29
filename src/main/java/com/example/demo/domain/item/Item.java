@@ -1,12 +1,11 @@
 package com.example.demo.domain.item;
 
 import com.example.demo.exception.NotEnoughStockException;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import com.example.demo.domain.Category;
 
 import jakarta.persistence.*;
-import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +16,8 @@ import java.util.List;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="DTYPE")
 @ToString
+@SuperBuilder
+@NoArgsConstructor
 public abstract class Item {
     @Id @GeneratedValue
     @Column(name="ITEM_ID")
@@ -29,6 +30,7 @@ public abstract class Item {
 
     @ManyToMany(mappedBy="items")
     @ToString.Exclude
+    @Builder.Default
     private List<Category> categories = new ArrayList<Category>();
 
     public void addStock(int quantity) { //입고, 주문취소

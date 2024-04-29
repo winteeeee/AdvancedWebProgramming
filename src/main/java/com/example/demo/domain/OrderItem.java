@@ -1,5 +1,6 @@
 package com.example.demo.domain;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import com.example.demo.domain.item.Item;
@@ -26,6 +27,7 @@ public class OrderItem {
     private int orderPrice;
     private int count;
 
+    @Builder
     public static OrderItem createOrderItem(Item item, int orderPrice, int count){
         OrderItem orderItem = new OrderItem();
         orderItem.setItem(item);
