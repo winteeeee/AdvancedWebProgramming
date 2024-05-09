@@ -35,6 +35,6 @@ public class Member extends BaseEntity {
     private Address address;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "member")
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Order> orders = new ArrayList<Order>();
 }
