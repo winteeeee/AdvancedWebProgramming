@@ -14,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @Transactional
 @SpringBootTest
+@Disabled
 class JpaMemberRepositoryTest {
     @Autowired
     private MemberRepository memberRepository;

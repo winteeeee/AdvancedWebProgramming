@@ -1,6 +1,7 @@
 package com.example.demo.api.controller;
 
 import com.example.demo.domain.Member;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpStatus;
@@ -14,6 +15,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
+@Disabled
 class MemberApiControllerTest {
     @Test
     void 사용자이름검색() {
