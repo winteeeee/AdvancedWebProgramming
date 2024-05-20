@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<h1>로그인</h1>
+<form id="register-form" th:action th:object="${loginForm}" method="post">
+    <div th:if="${#fields.hasGlobalErrors()}">
+        <p class="field-error" th:each="err : ${#fields.globalErrors()}" th:text="${err}">전체 오류 메시지</p>
+    </div>
+    <div class="form-row">
+        <label>아이디: </label> <input type="text" th:field="${loginForm.loginId}" autofocus="autofocus" placeholder="아이디"/>
+    </div>
+    <div class="form-row">
+        <label>비밀번호: </label> <input type="password" th:field="${loginForm.password}" placeholder="비밀번호"/>
+    </div>
+    <div class="form-row">
+        <input type="submit" value="로그인" />
+        <input type="reset" value="취소" />
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+</head>
+
+<body>
+    <div>
+        <div th:if="${member}">
+            <h4 th:text="|로그인:${member.name}|">로그인 사용자 이름</h4>
+            <a href="/logout">LOGOUT</a>
+        </div>
+        <div th:unless="${member}">
+            <a href="/login"> LOGIN </a>
+        </div>
+        <div class="service-container">
+            <h3><i class="fa fa-box"></i>&nbsp;&nbsp;상품 기능</h3>
+            <a href="/items/new">상품 등록</a>
+        </div>
+    </div>
+</body>
+</html>
